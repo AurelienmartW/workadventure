@@ -152,14 +152,6 @@ export const iframeQueryMapTypeGuards = {
         query: isCreateEmbeddedWebsiteEvent,
         answer: tg.isUndefined,
     },
-    getPlayerProperty: {
-        query: tg.isString,
-        answer: isPlayerPropertyEvent,
-    },
-    setPlayerProperty: {
-        query: isPlayerPropertyEvent,
-        answer: tg.isUndefined,
-    },
 };
 
 type GuardedType<T> = T extends (x: unknown) => x is infer T ? T : never;
