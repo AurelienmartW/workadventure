@@ -31,6 +31,7 @@ import { isMessageReferenceEvent, isTriggerActionMessageEvent } from "./ui/Trigg
 import type { MenuRegisterEvent, UnregisterMenuEvent } from "./ui/MenuRegisterEvent";
 import type { ChangeLayerEvent } from "./ChangeLayerEvent";
 import { isPlayerPropertyEvent } from "./PlayerPropertyEvent";
+import { isPlayerPosition } from "./PlayerPosition";
 
 export interface TypedMessageEvent<T> extends MessageEvent {
     data: T;
@@ -151,6 +152,10 @@ export const iframeQueryMapTypeGuards = {
     createEmbeddedWebsite: {
         query: isCreateEmbeddedWebsiteEvent,
         answer: tg.isUndefined,
+    },
+    getPlayerPosition: {
+        query: tg.isUndefined,
+        answer: isPlayerPosition,
     },
 };
 
