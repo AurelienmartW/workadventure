@@ -18,6 +18,6 @@ RUN rm dist/iframe.html
 RUN yarn install
 
 ENV NODE_ENV=production
-ENV STARTUP_COMMAND_0="./templater.sh"
-ENV STARTUP_COMMAND_1="yarn run build"
+ENV STARTUP_COMMAND_1="./templater.sh"
+ENV STARTUP_COMMAND_2="yarn run build"
 ENV APACHE_DOCUMENT_ROOT=dist/
