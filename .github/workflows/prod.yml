@@ -26,4 +26,5 @@ jobs:
 
     - name: Docker pour azure
       run: |
-        docker-compose push idacrossingcr.azurecr.io/workadventureserver:1
+        docker build . -t idacrossingcr.azurecr.io/workadventure:1
+        docker push idacrossingcr.azurecr.io/workadventure:1
