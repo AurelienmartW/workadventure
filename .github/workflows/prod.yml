@@ -1,0 +1,30 @@
+name: deploy
+
+on:
+  # Trigger the workflow on push or pull request,
+  # but only for the master branch
+  push:
+    branches:
+      - prod
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [16.x]
+
+    steps:
+    - uses: actions/checkout@v1
+
+    - name: Login Azure Registry
+      uses: azure/docker-login@v1
+      with: 
+        login-server: 'idacrossingcr.azurecr.io'
+        username: 'idacrossingcr'
+        password: ${{ secrets.PASSWORDAZUREW }}
+
+    - name: Docker pour azure
+      run: |
+        docker build . -t idacrossingcr.azurecr.io/workadventure:1
+        docker push idacrossingcr.azurecr.io/workadventure:1
