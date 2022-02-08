@@ -21,4 +21,13 @@ RUN apt -y install docker-ce docker-ce-cli containerd.io
 RUN apt -y install sudo
 RUN apt -y install iptables sudo -y
 
+RUN adduser --disabled-password --gecos "" user1
+RUN echo "user1:pwd" | chpasswd
+RUN adduser user1 sudo
+RUN echo pwd | su user1
+RUN sudo update-alternatives --set iptables /usr/sbin/iptables-legacy
+RUN export DOCKER_CLIENT_TIMEOUT=120
+RUN export COMPOSE_HTTP_TIMEOUT=120
+RUN sudo systemctl enable docker
+
 CMD ./startup.sh
