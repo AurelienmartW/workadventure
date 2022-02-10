@@ -26,5 +26,5 @@ jobs:
 
     - name: Docker pour azure
       run: |
-        docker build . -t idacrossingcr.azurecr.io/ServerWA:1
-        docker push idacrossingcr.azurecr.io/ServerWA:1
+        docker build . -t idacrossingcr.azurecr.io/serverwa:1
+        docker push idacrossingcr.azurecr.io/serverwa:1
