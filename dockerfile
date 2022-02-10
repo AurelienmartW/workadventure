@@ -29,5 +29,4 @@ RUN sudo update-alternatives --set iptables /usr/sbin/iptables-legacy
 RUN export DOCKER_CLIENT_TIMEOUT=120
 RUN export COMPOSE_HTTP_TIMEOUT=120
 RUN sudo systemctl enable docker
-
-CMD ./startup.sh
+EXPOSE 80
